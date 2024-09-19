@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -eux \
     && apt-get update \
-    && apt-get install --yes --no-install-recoomends \
+    && apt-get install --yes --no-install-recommends \
         bash
 
 CMD ["bash"]
