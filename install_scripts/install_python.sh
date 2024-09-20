@@ -37,12 +37,9 @@ install_poetry() {
     export POETRY_NO_INTERACTION=1
     export POETRY_CACHE_DIR="/var/cache/pypoetry"
 
-
-
     curl -sSL https://install.python-poetry.org | python3 -
     ${POETRY_HOME}/bin/poetry self add poetry-plugin-export
     ${POETRY_HOME}/bin/poetry self add poetry-plugin-bundle
-    echo "export PATH=\$PATH:${POETRY_HOME}/bin" >> "${HOME}/.bashrc"
     echo "export PATH=\$PATH:${POETRY_HOME}/bin" >> "${HOME}/.bashrc"
 }
 
