@@ -40,7 +40,6 @@ setup_docker() {
       "deb [arch=$(dpkg --print-architecture) signed-by=$docker_keyring] ${docker_url} \
       $os_codename stable" | tee "$docker_apt_source" > /dev/null
     apt-get update
-
 }
 
 install_docker_packages() {
@@ -52,10 +51,12 @@ install_docker_packages() {
         docker-compose-plugin
         docker-scan-plugin
     )
-    apt-get install -y "${docker_packages[@]}"
+    apt-get install --yes --no-install-recommends "${docker_packages[@]}"
 }
 
 main() {
+    apt-get update
+
     remove_docker_packages
     setup_docker
     install_docker_packages
