@@ -8,7 +8,8 @@ install_core_apps() {
         build-essential \
         software-properties-common \
         ca-certificates \
-        apt-transport-https
+        apt-transport-https \
+        lsb-release
 }
 
 install_common_tools() {
@@ -60,6 +61,7 @@ install_system_monitoring_tools() {
         glances \
         nmon
 }
+
 install_git () {
     apt-get install --yes --no-install-recommends \
         git

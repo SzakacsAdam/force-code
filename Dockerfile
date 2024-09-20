@@ -17,6 +17,7 @@ RUN set -eux \
     && chmod +x ${INSTALL_SCRIPT_DIR}/*.sh \
     && ${INSTALL_SCRIPT_DIR}/install_commons.sh \
     && ${INSTALL_SCRIPT_DIR}/install_python.sh \
+    && ${INSTALL_SCRIPT_DIR}/install_docker.sh \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
