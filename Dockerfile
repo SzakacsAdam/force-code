@@ -9,12 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN set -eux \
     && apt-get update \
     && apt-get install --yes --no-install-recommends \
-        bash \
-        sudo passwd \
-        build-essential \
-        htop mc nano \
-        curl \
-        ca-certificates
+        bash
 
 COPY install_scripts/ ${INSTALL_SCRIPT_DIR}/
 
