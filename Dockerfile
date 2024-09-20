@@ -18,9 +18,12 @@ RUN set -eux \
 RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/install_commons.sh
 RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/install_c_cpp.sh
+RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/install_python.sh
 RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/install_docker.sh
+
 
 RUN set -eux \
     && apt-get clean \
