@@ -14,10 +14,13 @@ RUN set -eux \
 COPY install_scripts/ ${INSTALL_SCRIPT_DIR}/
 
 RUN set -eux \
-    && chmod +x ${INSTALL_SCRIPT_DIR}/*.sh \
-    && ${INSTALL_SCRIPT_DIR}/install_commons.sh \
-    && ${INSTALL_SCRIPT_DIR}/install_python.sh \
-    && ${INSTALL_SCRIPT_DIR}/install_docker.sh \
+    && chmod +x ${INSTALL_SCRIPT_DIR}/*.sh
+    && ${INSTALL_SCRIPT_DIR}/install_commons.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/install_python.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/install_docker.sh
+RUN set -eux \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
