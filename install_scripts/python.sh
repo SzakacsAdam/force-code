@@ -107,7 +107,7 @@ main() {
     install_poetry
     install_pipx
     install_pyenv
-    install_pyenv_pythons
+#    install_pyenv_pythons
 }
 
 main
