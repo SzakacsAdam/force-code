@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -eux
+
+readonly PY_PROJECT_TOML="pyproject.toml"
+
+if [ ! -f "${PY_PROJECT_TOML}" ]; then
+    echo "Error: pyproject.toml not found!"
+    exit 1
+fi
+
+readonly PYTHON_VERSION=$(grep -E "^python = " pyproject.toml | sed 's/python = "[\^]*//;s/"//')
+
+if [ -z "${PYTHON_VERSION}" ]; then
+    echo "Error: Python version not found in pyproject.toml"
+    exit 1
+fi
+
+if ! command -v pyenv >/dev/null 2>&1; then
+    echo "Error: No PyEnv"
+fi
+
+if ! command -v poetry >/dev/null 2>&1; then
+    echo "Error: No Poetry"
+fi
+
+pyenv install "${PYTHON_VERSION}"
+pyenv local "${PYTHON_VERSION}"
+
+poetry env use "$(pyenv which python)"
+poetry install

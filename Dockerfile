@@ -17,7 +17,7 @@ RUN set -eux \
     && apt-get install --yes --no-install-recommends \
         bash \
     && chmod +x ${INSTALL_SCRIPT_DIR}/*.sh \
-    && chmod +x ${CMD_SCRIPT_DIR}/*.sh
+    && chmod +x ${CMD_SCRIPT_DIR}/*
 
 
 RUN set -eux \
