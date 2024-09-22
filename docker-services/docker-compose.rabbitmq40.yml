@@ -1,0 +1,16 @@
+services:
+  rabbitmq40:
+    image: rabbitmq:4.0-management
+    container_name: rabbitmq40
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq40_net
+networks:
+  rabbitmq40_net:
+    driver: bridge
