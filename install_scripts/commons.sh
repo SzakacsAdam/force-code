@@ -8,6 +8,7 @@ install_core_apps() {
         build-essential \
         software-properties-common \
         ca-certificates \
+        openssl \
         apt-transport-https \
         lsb-release
 }
