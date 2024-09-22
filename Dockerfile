@@ -6,8 +6,8 @@ ARG INSTALL_SCRIPT_DIR="/opt/install_scripts"
 ARG CMD_SCRIPT_DIR="/usr/local/bin"
 
 ENV \
-    DEBIAN_FRONTEND=noninteractive \
-    PATH="/usr/local/bin:$PATH"
+    DEBIAN_FRONTEND="noninteractive" \
+    PATH="/usr/local/bin:${PATH}"
 
 COPY install_scripts/ ${INSTALL_SCRIPT_DIR}/
 COPY scripts/ ${CMD_SCRIPT_DIR}/
@@ -28,6 +28,12 @@ RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/python.sh
 RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/docker.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/javascript.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/rust.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/go.sh
 
 
 RUN set -eux \
