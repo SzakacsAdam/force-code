@@ -12,3 +12,9 @@ docker run \
      ghcr.io/szakacsadam/force-code:latest \
      /bin/bash
 ```
+
+```bash
+docker ps --filter "name=force-code" --filter "status=running" | grep -q force-code \
+|| docker start force-code \
+&& docker exec -it force-code /bin/bash
+```
