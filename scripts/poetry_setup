@@ -24,7 +24,7 @@ if ! command -v poetry >/dev/null 2>&1; then
     echo "Error: No Poetry"
 fi
 
-pyenv install "${PYTHON_VERSION}"
+pyenv install "${PYTHON_VERSION}" --skip-existing
 pyenv local "${PYTHON_VERSION}"
 
 poetry env use "$(pyenv which python)"

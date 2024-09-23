@@ -1,0 +1,59 @@
+#!/bin/bash
+
+readonly COMPOSE_DIR="/opt/docker-services"
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <docker compose-file-name> <action>"
+    exit 1
+fi
+
+readonly COMPOSE_FILE=$1
+readonly ACTION=$2
+readonly COMPOSE_PATH="${COMPOSE_DIR}/${COMPOSE_FILE}"
+
+if [ ! -f "${COMPOSE_PATH}" ]; then
+    echo "Error: Docker Compose file '${COMPOSE_PATH}' does not exist."
+    exit 1
+fi
+
+case "$ACTION" in
+    up)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+             up
+        ;;
+    upd)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+             up \
+                --detach
+        ;;
+    down)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+             down
+        ;;
+    rm)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+             rm \
+                --stop \
+                --force
+        ;;
+    rmi)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+             down \
+                --rmi all
+        ;;
+    logs)
+        docker compose \
+            --file "${COMPOSE_PATH}" \
+            logs \
+                --follow
+        ;;
+    *)
+        echo "Error: Unsupported action '$ACTION'."
+        exit 1
+        ;;
+esac

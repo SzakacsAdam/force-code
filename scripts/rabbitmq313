@@ -1,0 +1,11 @@
+#!/bin/bash
+
+readonly COMPOSE_NAME="docker-compose.rabbitmq313.yml"
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <action>"
+    exit 1
+fi
+
+compose-helper "${COMPOSE_NAME}" "$1"
+

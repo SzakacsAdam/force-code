@@ -4,6 +4,7 @@ FROM debian:bookworm-${DEBIAN_VERSION}-slim
 
 ARG INSTALL_SCRIPT_DIR="/opt/install_scripts"
 ARG CMD_SCRIPT_DIR="/usr/local/bin"
+ARG DOCKER_SERVIES_DIR="/opt/docker-services"
 
 ENV \
     DEBIAN_FRONTEND="noninteractive" \
@@ -11,6 +12,7 @@ ENV \
 
 COPY install_scripts/ ${INSTALL_SCRIPT_DIR}/
 COPY scripts/ ${CMD_SCRIPT_DIR}/
+COPY docker-services/ ${DOCKER_SERVIES_DIR}/
 
 RUN set -eux \
     && apt-get update \
