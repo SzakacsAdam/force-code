@@ -24,18 +24,18 @@ RUN set -eux \
 
 RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/commons.sh
-#RUN set -eux \
-#    && ${INSTALL_SCRIPT_DIR}/c_cpp.sh
-#RUN set -eux \
-#    && ${INSTALL_SCRIPT_DIR}/python.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/c_cpp.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/python.sh
 RUN set -eux \
     && ${INSTALL_SCRIPT_DIR}/docker.sh
-#RUN set -eux \
-#    && ${INSTALL_SCRIPT_DIR}/javascript.sh
-#RUN set -eux \
-#    && ${INSTALL_SCRIPT_DIR}/rust.sh
-#RUN set -eux \
-#    && ${INSTALL_SCRIPT_DIR}/go.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/javascript.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/rust.sh
+RUN set -eux \
+    && ${INSTALL_SCRIPT_DIR}/go.sh
 
 
 RUN set -eux \
